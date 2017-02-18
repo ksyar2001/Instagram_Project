@@ -12,7 +12,10 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    	</head>
+
+    <!-- D3.js -->
+    <script type="text/javascript" src="{% static 'd3.v3.js' %}"></script>
+  </head>
 
 <body>
 <h1> HELLO </h1>
@@ -71,5 +74,32 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<style>
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+</style>
+<div class="chart"></div>
+<script>
+
+var data = {{ data }}
+
+var x = d3.scale.linear()
+    .domain([0, d3.max(data)])
+    .range([0, 420]);
+
+d3.select(".chart")
+  .selectAll("div")
+    .data(data)
+  .enter().append("div")
+    .style("width", function(d) { return x(d) + "px"; })
+    .text(function(d) { return d; });
+
+</script>
 </body>
 </html>
