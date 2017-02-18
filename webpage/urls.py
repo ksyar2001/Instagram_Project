@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     url(r'^callback/', views.callback, name='callback'),
-    url(r'^$', views.frontpage, name='frontpage')
+    url(r'^$', views.frontpage, name='frontpage'),
+    url(r'^render/', views.rendering, name='render')
 ]
