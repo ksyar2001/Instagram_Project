@@ -24,8 +24,4 @@ class WatsonAPI():
 
 test = WatsonAPI()
 test.getPersonalityInsights( """
-
 """ )
-
-
-# this is to check git
