@@ -6,7 +6,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-username = "mrbookieboo"
+# username = "mrbookieboo"
 
 
 def get_tags(driver):
@@ -70,7 +70,7 @@ def get_like_number(driver):
 	return like
 
 
-def web_scrape():
+def web_scrape(username):
 	account_object = InstagramAccount(username=username)
 	account_object.save()
 
@@ -119,13 +119,13 @@ def web_scrape():
 
 		account_object.photo.add(photo_object)
 
-		photo = AccountPhoto(photo, likes, comments=comments, tags=tags)
-		photos.append(photo)
+		# photo = AccountPhoto(photo, likes, comments=comments, tags=tags)
+		# photos.append(photo)
 
-	account = InstagramAccount(username, photos)
+	# account = InstagramAccount(username, photos)
 
 	# return account
 
-web_scrape()
+# web_scrape()
 
 
