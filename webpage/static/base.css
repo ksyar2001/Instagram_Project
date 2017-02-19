@@ -1,0 +1,244 @@
+/* CSS SET UP */
+
+body{
+  font: 10px sans-serif;
+  background: #343d46;
+  color: #fff;
+}
+
+div.ex1 {
+  padding: 500px;
+}
+
+.box{
+  margin: 100px auto;
+  width: 300px;
+  height: 50px;
+}
+
+/* Search 1 - bg change*/
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.container-1 input#search{
+  width: 300px;
+  height: 50px;
+  background: #2b303b;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #262626;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
+}
+
+.container-1 input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+.container-1 input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+.container-1 input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+.container-1 input#search:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 17px;
+  z-index: 1;
+  color: #4f5b66;
+}
+
+  /* ANIMATION EFFECTS */
+  .container-1 input#search:focus, .container-1 input#search:active{
+    outline:none;
+    background: #ffffff;
+  }
+
+/*
+  body{
+  background: #DAEBF0;
+}
+*/
+section{
+  width: 200px;
+  margin:0 auto;
+}
+button{
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 50px 0;
+  background: #262626;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+
+/* 4 */
+button#four{
+  width: 175px;
+  margin:0 auto;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+}
+button#four:hover{
+  width:200px;
+  background: #262626;
+}
+
+
+#chart {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.axis {
+  text {
+    fill: #fff;
+  }
+  path, line {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+  }
+}
+
+.x.axis path {
+  //display: none;
+}
+
+.region text {
+  //fill: #fff;
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus {
+  circle {
+    fill: none;
+    stroke: rgba(255,255,255,.5);
+    stroke-width: 1.5px;
+  }
+  text {
+    fill: #fff;
+  }
+}
+
+.helper line {
+  fill: none;
+  stroke: rgba(255,255,255,.25);
+  stroke-width: 1px;
+}
+
+
+/* map */
+
+svg {
+  margin-top: -5vh;
+  width: 90vw;
+  height: 90vh;
+  margin-left: 5vw;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  position: absolute;
+}
+
+#dialog {
+  display: none;
+}
+
+#usa, #india, #eu, #china {
+  opacity: 0;
+}
+
+.text-usa, .text-eu, .text-india, .text-china {
+  opacity: 0;
+  display: none;
+}
+
+.hotspot {
+  cursor: pointer;
+  padding: 20px;
+}
+
+#outlines {
+  stroke-width: 0.5;
+  stroke-opacity: 0.6;
+}
+
+.text-info {
+  background: #23272D;
+  padding: 20px;
+  max-width: 350px;
+  border: 1px solid #B6DADD;
+  position: absolute;
+  right: 5vw;
+  top: 40vh;
+}
+.text-info table {
+  margin-top: 10px;
+}
+.text-info td {
+  width: 15%;
+  height: 30px;
+}
+.text-info td:first-child {
+  font-weight: bold;
+}
+.text-info h2 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #7B848E;
+}
+
+.x-out {
+  position: absolute;
+  fill: #B6DADD;
+  width: 45px;
+  height: 45px;
+  right: 5vw;
+  top: 80px;
+  opacity: 0;
+  cursor: pointer;
+}
