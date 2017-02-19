@@ -57,5 +57,5 @@ class Tone():
 
 
 test = WatsonAPI()
-print( json.dumps( test.getToneAnalysis( "I love you" ), indent = 2 ) )
+print( "what are you doing" )
 
