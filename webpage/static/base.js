@@ -10,7 +10,7 @@ var parseDate = d3.time.format("%m-%Y").parse,
   formatValue = d3.format(","),
     formatCurrency = function(d) { return "£" + formatValue(d); };
 
-var URL = "http://www.lenart.pl/assets/codepen/house-prices.csv";
+var URL = {{csv}}
 
 var x = d3.time.scale()
 .range([0, width]);

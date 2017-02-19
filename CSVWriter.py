@@ -4,7 +4,7 @@ from StringIO import StringIO
 class CSVWriter():
     def __init__( self ):
         self.output = StringIO()
-        self.writer = csvClass.writer( self.output )
+        self.writer = csvClass.writer( self.output, lineterminator='')
 
     def writeRow( self, listOfStrings ):
         self.writer.writerow( listOfStrings )

@@ -2,7 +2,7 @@ from webpage.models import *
 from CSVWriter import CSVWriter
 
 def generatePhotoCSV( username ):
-    string = ""
+    string = "date,comments,likes\\n"
     for photo in InstagramAccount.objects.get(username=username).photo.all():
         csv = CSVWriter()        
         list = []
@@ -14,7 +14,7 @@ def generatePhotoCSV( username ):
         
 
         csv.writer.writerow( list )
-        string += csv.output.getvalue()
+        string += csv.output.getvalue() + "\\n"
     csv.close()        
     return string
 
