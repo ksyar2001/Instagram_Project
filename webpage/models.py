@@ -13,8 +13,9 @@ class Comment(models.Model):
 class Photo(models.Model):
 	link = models.CharField(max_length=200)
 	likes = models.IntegerField()
-	comments = models.ForeignKey(Comment)
+	comments = models.ManyToManyField(Comment, null=True)
+	tag = models.ManyToManyField(Tags, null=True)
 
 class InstagramAccount(models.Model):
 	username = models.CharField(max_length=20)
-	photo = models.ForeignKey(Photo)
+	photo = models.ManyToManyField(Photo, null=True)

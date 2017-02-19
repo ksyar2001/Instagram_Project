@@ -65,14 +65,14 @@ def get_like_number(driver):
 
 
 def web_scrape():
-	InstagramAccount.objects.create
+	account_object = InstagramAccount.objects.create(username=username)
 
 	driver = webdriver.Chrome()
 	driver.get("https://www.instagram.com/{}/?hl=en".format(username))
 	load_button = driver.find_element_by_link_text("Load more")
 	load_button.click()
 
-	for i in range(1):
+	for i in range(5):
 		driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 		time.sleep(2)
 
@@ -86,23 +86,37 @@ def web_scrape():
 		for image in images:
 			links.append(image.get_attribute("href"))
 
-	for link in links[:5]:
+	for link in links:
 
 		driver.get(link)
 
 		photo = get_photo(driver)
+		likes = get_like_number(driver)
+		if "," in likes:
+			likes = likes.replace(',','')
 
+		photo_object = Photo.objects.create(link=photo, likes=int(likes))
 
 		tags = get_tags(driver)
+
+		for tag in tags:
+			tag_object = Tags.objects.create(tag=tag)
+			photo_object.tag.add(tag_object)
+
 		comments = get_comments(driver)
-		likes = get_like_number(driver)
+
+		for comment in comments:
+			comment_object = Comment.objects.create(comment=comment)
+			photo_object.comments.add(comment_object)
+
+		account_object.photo.add(photo_object)
 
 		photo = AccountPhoto(photo, likes, comments=comments, tags=tags)
 		photos.append(photo)
 
 	account = InstagramAccount(username, photos)
 
-	return account
+	# return account
 
 # web_scrape()
 
