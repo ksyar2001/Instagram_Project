@@ -47,6 +47,12 @@ def get_comments(driver):
 def get_photo(driver):
 	return driver.find_element_by_tag_name("img").get_attribute("src")
 
+def get_time(driver):
+	div = driver.find_element_by_css_selector("._es1du._rgrbt")
+	date = div.find_element_by_tag_name("time").get_attribute("datetime")
+
+	return date
+
 
 def get_like_number(driver):
 	try:
@@ -65,14 +71,15 @@ def get_like_number(driver):
 
 
 def web_scrape():
-	account_object = InstagramAccount.objects.create(username=username)
+	account_object = InstagramAccount(username=username)
+	account_object.save()
 
 	driver = webdriver.Chrome()
 	driver.get("https://www.instagram.com/{}/?hl=en".format(username))
 	load_button = driver.find_element_by_link_text("Load more")
 	load_button.click()
 
-	for i in range(5):
+	for i in range(1):
 		driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 		time.sleep(2)
 
@@ -86,7 +93,7 @@ def web_scrape():
 		for image in images:
 			links.append(image.get_attribute("href"))
 
-	for link in links:
+	for link in links[:3]:
 
 		driver.get(link)
 
@@ -94,8 +101,9 @@ def web_scrape():
 		likes = get_like_number(driver)
 		if "," in likes:
 			likes = likes.replace(',','')
+		upload_time = get_time(driver)
 
-		photo_object = Photo.objects.create(link=photo, likes=int(likes))
+		photo_object = Photo.objects.create(link=photo, likes=int(likes), time=upload_time)
 
 		tags = get_tags(driver)
 
@@ -118,6 +126,6 @@ def web_scrape():
 
 	# return account
 
-# web_scrape()
+web_scrape()
 
 
