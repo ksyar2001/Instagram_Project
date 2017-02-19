@@ -8,7 +8,7 @@ def callback(request):
     return HttpResponse("INSTAGRAM TOKEN HERE")
 
 def rendering(request):
-	data_list = [4, 8, 15, 16, 23, 42, 60, 120, 240, 450]
+	data_list = [100,200,300,400,500]
 	return render(request, "base.html", {'data': data_list})
 
 
