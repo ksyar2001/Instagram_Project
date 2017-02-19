@@ -7,11 +7,18 @@ class TestWatson(TestCase):
 
 	def test_watson(self):
 		web_scrape()
-		comments = ""
+		# comments = ""
+
+		print InstagramAccount.objects.all()
 
 		for photo in InstagramAccount.objects.get(username="mrbookieboo").photo.all():
-			for comment in photo.comments.all():
-				print comment.comment
+			print photo.comments.all().count()
+
+		for photo in InstagramAccount.objects.get(username="mrbookieboo").photo.all():
+			print photo.pk
+			print "=============================="
+			print photo.tag.all().count()
+
 
 		# for photo in account.photo:
 		# 	for comment in photo.comments:

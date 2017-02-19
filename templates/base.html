@@ -54,19 +54,17 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
+<form action= "{% url 'd3' %}" method="POST">{% csrf_token %}
 <div class="box">
   <div class="container-1">
       <span class="icon"><i class="fa fa-search"></i></span>
-      <input type="search" id="search" placeholder="@Instagram_ID"  />
+      <input type="search" id="search" placeholder="@Instagram_ID"/>
   </div>
 </div>
-
-
-<section>
- 
-<button type="button" id="four" >GET</button>
-
+<section> 
+<button type="submit" id="username" >GET</button>
 </section>
+</form>
 
 
 <!--
