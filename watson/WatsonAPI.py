@@ -52,10 +52,11 @@ class Tone():
 
     def tone( self, text ):
         return self.tone_analyzer.tone( 
-            text = text 
+            text = text,
+            sentences = False 
         )
 
 
-test = WatsonAPI()
-print( json.dumps( test.getToneAnalysis( "I love you" ), indent = 2 ) )
+# test = WatsonAPI()
+# print( json.dumps( test.getToneAnalysis( "I love you" ), indent = 2 ) )
 
